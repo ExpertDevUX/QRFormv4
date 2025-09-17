@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { StatsCard } from "@/components/ui/stats-card";
 import { UnifiedQRGenerator } from "@/components/ui/unified-qr-generator";
 import { RegistrationTable } from "@/components/ui/registration-table";
+import { PageBuilder } from "@/pages/page-builder";
 import { Event } from "@shared/schema";
 
 interface DashboardProps {
@@ -130,6 +131,10 @@ export function Dashboard({ activeTab, onTabChange }: DashboardProps) {
 
   if (activeTab === 'unified-generator') {
     return <UnifiedQRGenerator />;
+  }
+
+  if (activeTab === 'page-builder') {
+    return <PageBuilder />;
   }
 
   if (activeTab === 'registrations') {

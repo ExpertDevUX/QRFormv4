@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { QrCode, BarChart3, Users, Download, Menu, X, Sparkles } from "lucide-react";
+import { QrCode, BarChart3, Users, Download, Menu, X, Sparkles, Layout } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface NavigationProps {
@@ -13,7 +13,8 @@ export function Navigation({ activeTab, onTabChange, onExport }: NavigationProps
 
   const navItems = [
     { id: "dashboard", label: "Dashboard", icon: BarChart3 },
-    { id: "unified-generator", label: "QR Generator & Page Builder", icon: Sparkles },
+    { id: "unified-generator", label: "QR Generator", icon: QrCode },
+    { id: "page-builder", label: "Page Builder", icon: Layout },
     { id: "registrations", label: "Registrations", icon: Users },
   ];
 

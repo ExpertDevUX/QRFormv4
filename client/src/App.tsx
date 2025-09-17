@@ -7,6 +7,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navigation } from "@/components/ui/navigation";
 import { Dashboard } from "@/pages/dashboard";
 import { RegistrationForm } from "@/pages/registration-form";
+import { PageBuilder } from "@/pages/page-builder";
 import { exportToExcel } from "@/lib/excel";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { useToast } from "@/hooks/use-toast";
