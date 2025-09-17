@@ -19,7 +19,9 @@ import {
   Smartphone,
   Plus,
   Trash2,
-  GripVertical
+  GripVertical,
+  Square,
+  Minus
 } from "lucide-react";
 import { z } from "zod";
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
@@ -769,8 +771,10 @@ export function UnifiedQRGenerator() {
                 <Card>
                   <CardHeader>
                     <CardTitle className="text-lg">Enhanced Tools</CardTitle>
+                  </CardHeader>
+                  <CardContent>
                     <Tabs value={activeEnhancedTab} onValueChange={(value) => setActiveEnhancedTab(value as 'page-builder' | 'form-builder')}>
-                      <TabsList className="grid w-full grid-cols-2">
+                      <TabsList className="grid w-full grid-cols-2 mb-4">
                         <TabsTrigger value="page-builder" className="text-xs">
                           Page Builder
                         </TabsTrigger>
@@ -778,10 +782,8 @@ export function UnifiedQRGenerator() {
                           Form Builder
                         </TabsTrigger>
                       </TabsList>
-                    </Tabs>
-                  </CardHeader>
-                  <CardContent>
-                    <TabsContent value="page-builder" className="space-y-4">
+                      
+                      <TabsContent value="page-builder" className="space-y-4">
                       <div>
                         <Label>Drag Elements to Canvas</Label>
                         <Droppable droppableId="palette" isDropDisabled={true}>
@@ -927,6 +929,7 @@ export function UnifiedQRGenerator() {
                         </div>
                       </div>
                     </TabsContent>
+                  </Tabs>
                   </CardContent>
                 </Card>
               </div>
@@ -1005,7 +1008,9 @@ export function UnifiedQRGenerator() {
                               {...provided.droppableProps}
                               ref={(el) => {
                                 provided.innerRef(el);
-                                canvasRef.current = el;
+                                if (canvasRef.current !== el) {
+                                  (canvasRef as any).current = el;
+                                }
                               }}
                               className={`relative bg-white rounded-lg border-2 border-dashed min-h-96 overflow-hidden transition-all duration-200 ${
                                 snapshot.isDraggingOver 
